@@ -3,6 +3,7 @@ package com.example.githubrepoapp.di
 import com.example.githubrepoapp.data.Constants.Companion.BASE_URL
 import com.example.githubrepoapp.data.dataSources.remote.GithubRemoteDataSource
 import com.example.githubrepoapp.data.dataSources.remote.retrofit.api.GithubApi
+import com.example.githubrepoapp.data.dataSources.remote.retrofit.api.IssuesApi
 import com.example.githubrepoapp.data.dataSources.remote.retrofit.api.RepoDetailsApi
 import com.example.githubrepoapp.data.dataSources.remote.retrofit.datamodel.repo_details.RepositoryDetailsDataModel
 import dagger.Module
@@ -50,6 +51,12 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient())
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideIssuesApi(retrofit: Retrofit): IssuesApi {
+        return retrofit.create(IssuesApi::class.java)
     }
 
 }

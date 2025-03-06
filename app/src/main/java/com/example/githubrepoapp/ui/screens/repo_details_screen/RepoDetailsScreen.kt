@@ -56,7 +56,6 @@ fun RepoDetailsScreen(
     owner: String,
     name: String,
     onClickBack: () -> Unit,
-    onClickViewIssues: () -> Unit,
     onShowIssuesClicked: () -> Unit
 ) {
     val repoDetailsViewModel: RepoDetailsViewModel = hiltViewModel()
